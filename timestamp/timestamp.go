@@ -33,9 +33,7 @@ func tscanner(v reflect.Value, rd types.Reader, n int) error {
 	if err != nil {
 		return err
 	}
-
-	ptr := v.Addr().Interface().(*timestamppb.Timestamp)
-	*ptr = *pt
+	v.Set(reflect.ValueOf(pt))
 	return nil
 }
 
